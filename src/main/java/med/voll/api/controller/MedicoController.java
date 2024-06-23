@@ -64,4 +64,11 @@ public class MedicoController {
         return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 
+//    @GetMapping("/{id}") // Para detalhar um medico é necessário ser ADMIN, pois tem anotacao @Secured("ROLE_ADMIN")
+//    @Secured("ROLE_ADMIN")
+//    public ResponseEntity detalhar(@PathVariable Long id) {
+//        var medico = repository.getReferenceById(id);
+//        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
+//    }
+
 }

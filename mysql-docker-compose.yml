@@ -1,5 +1,13 @@
 version: '3.8'
 
+#Comandos para adicionar o hash no banco de dados
+#
+#  docker exec -it (identificador do container) bash
+#  mysql -u root -p vollmed_api
+#  senha root: root_password
+#  select * from usuarios;
+#  insert into usuarios values (1, 'ana.souza@voll.med', '$2a$10$Y50UaMFOxteibQEYLrwuHeehHYfcoafCopUazP12.rqB41bsolF5.');
+
 #services:
 #  db:
 #    image: mysql:8.0.31
@@ -13,7 +21,7 @@ version: '3.8'
 
 services:
   mysql:
-    image: mysql:latest
+    image: mysql:8.0.31
     container_name: mysql_container
     volumes:
       - dbbase:/var/lib/mysql
@@ -24,16 +32,16 @@ services:
       MYSQL_PASSWORD: leafar
     ports:
       - "3306:3306"
-    networks:
-      - cadastrousuario_default
+#    networks:
+#      - cadastrousuario_default
 
 
 volumes:
   dbbase:
 
-networks:
-  cadastrousuario_default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
+#networks:
+#  cadastrousuario_default:
+#    driver: bridge
+#    ipam:
+#      config:
+#        - subnet: 172.20.0.0/16
